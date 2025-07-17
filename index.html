@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Min Hu - Research Scientist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0066cc;
+            --secondary-color: #f8f9fa;
+            --text-color: #333;
+            --light-gray: #6c757d;
+            --border-color: #e9ecef;
+            --accent-color: #0056b3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header Section */
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 40px;
+            padding: 40px;
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #ffffff 100%);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .profile-photo {
+            flex-shrink: 0;
+        }
+
+        .profile-photo img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary-color);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .header-content h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .header-content .subtitle {
+            font-size: 1.2rem;
+            color: var(--light-gray);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 0.95rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-color);
+        }
+
+        .contact-item i {
+            color: var(--primary-color);
+            width: 16px;
+        }
+
+        .contact-item a {
+            color: var(--text-color);
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 40px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .section h2 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--primary-color);
+        }
+
+        /* Work Experience & Education */
+        .experience-item, .education-item {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .experience-item:last-child, .education-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .item-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-color);
+        }
+
+        .item-date {
+            color: var(--light-gray);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .item-company, .item-institution {
+            font-style: italic;
+            color: var(--accent-color);
+            margin-bottom: 8px;
+        }
+
+        .item-description {
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: var(--secondary-color);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .skill-category p {
+            color: var(--text-color);
+            line-height: 1.5;
+        }
+
+        /* Publications & Patents */
+        .publication-list, .patent-list {
+            list-style: none;
+            counter-reset: publication-counter;
+        }
+
+        .publication-list li, .patent-list li {
+            counter-increment: publication-counter;
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .publication-list li::before, .patent-list li::before {
+            content: "[" counter(publication-counter) "]";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .publication-list li strong, .patent-list li strong {
+            color: var(--accent-color);
+        }
+
+        .journal {
+            font-style: italic;
+            color: var(--light-gray);
+        }
+
+        /* Awards */
+        .award-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .award-item:last-child {
+            border-bottom: none;
+        }
+
+        .award-name {
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .award-details {
+            color: var(--light-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Professional Profile */
+        .profile-list {
+            list-style: none;
+        }
+
+        .profile-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .profile-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .header-content h1 {
+                font-size: 2rem;
+            }
+
+            .contact-info {
+                justify-content: center;
+            }
+
+            .item-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .award-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Hover effects */
+        .section {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="profile-photo">
+                <img src="photo.jpg" alt="Min Hu">
+            </div>
+            <div class="header-content">
+                <h1>Min Hu</h1>
+                <div class="subtitle">Research Scientist | Biomedical Engineer</div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:humin.cosmic@gmail.com">humin.cosmic@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+86 15388077011</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Changsha, China</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Professional Profile -->
+        <section class="section">
+            <h2>Professional Profile</h2>
+            <ul class="profile-list">
+                <li>Research Scientist with a PhD in Medical Informatics and over a decade of experience in applying data science and machine learning to solve complex healthcare challenges.</li>
+                <li>Proven track record of leading international projects, publishing in high-impact journals (e.g., Computers in Biology and Medicine), and securing patents for novel diagnostic systems.</li>
+                <li>Expertise in biomedicine, real-world data analysis, and developing clinical decision support systems.</li>
+                <li>Fluent in English, Japanese, and Mandarin, enabling effective collaboration in global research environments.</li>
+            </ul>
+        </section>
+
+        <!-- Work Experience -->
+        <section class="section">
+            <h2>Work Experience</h2>
+            
+            <div class="experience-item">
+                <div class="item-header">
+                    <div class="item-title">AI Research Scientist</div>
+                    <div class="item-date">2023 – Present</div>
+                </div>
+                <div class="item-company">Aier Eye Hospital Group Co., Ltd., Changsha, China</div>
+                <div class="item-description">
+                    Led research on the application of Multimodal Large Language Models for automated analysis of surgical videos, designing and finetuning a novel framework for the objective evaluation of cataract surgery procedures.
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="item-header">
+                    <div class="item-title">Postdoctoral Researcher</div>
+                    <div class="item-date">2021 – 2023</div>
+                </div>
+                <div class="item-company">Aier Eye Hospital Group & Chinese Academy of Sciences, China</div>
+                <div class="item-description">
+                    Led research on machine learning applications for ophthalmic imaging data (OCT, fundus) to advance the early detection and prevention of high myopia and dry AMD.
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="item-header">
+                    <div class="item-title">Biomedical Research Engineer</div>
+                    <div class="item-date">2019 – 2021</div>
+                </div>
+                <div class="item-company">Cosmic Corporation Co., Ltd., Tokyo, Japan</div>
+                <div class="item-description">
+                    Led a collaborative research project with four public hospitals in Japan to develop a machine learning based clinical decision support system for early thyroid detection using routine laboratory tests.
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="section">
+            <h2>Education</h2>
+            
+            <div class="education-item">
+                <div class="item-header">
+                    <div class="item-title">Ph.D. in Medical Informatics</div>
+                    <div class="item-date">2015 – 2019</div>
+                </div>
+                <div class="item-institution">Kyushu University, Fukuoka, Japan</div>
+                <div class="item-description">
+                    Research Focus: Real-World Clinical Data Analysis, Data Science, Machine Learning.
+                </div>
+            </div>
+
+            <div class="education-item">
+                <div class="item-header">
+                    <div class="item-title">M.S. in Medical Informatics</div>
+                    <div class="item-date">2013 – 2015</div>
+                </div>
+                <div class="item-institution">Kyushu University, Fukuoka, Japan</div>
+                <div class="item-description">
+                    Research Focus: Medical Sensors, Public Health, Telemedicine.
+                </div>
+            </div>
+
+            <div class="education-item">
+                <div class="item-header">
+                    <div class="item-title">B.S. in Biomedical Information Engineering</div>
+                    <div class="item-date">2007 – 2011</div>
+                </div>
+                <div class="item-institution">Northeastern University, Shenyang, China</div>
+                <div class="item-description">
+                    Relevant Coursework: Computer Science, C++/Java Programming, Data Structures & Algorithms, Medical Imaging.
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills & Expertise -->
+        <section class="section">
+            <h2>Skills & Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming</h3>
+                    <p>Python (Pandas, Scikit-learn, PyTorch, TensorFlow), SQL, Linux Systems, Git</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Expertise</h3>
+                    <p>Computer Science, Data Analysis, Medical Statistics</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <p>Mandarin Chinese (Native), English (TOEIC 950/990), Japanese (JLPT N1)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Selected Publications -->
+        <section class="section">
+            <h2>Selected Publications</h2>
+            <ol class="publication-list">
+                <li>Cao D, <strong>Hu M</strong> (co-first), Zhi D, Liang J, Tan Q, Lei Q, Dai W. Systematic evaluation of machine learning-enhanced trifocal IOL power selection for axial myopia cataract patients. <span class="journal">Computers in Biology and Medicine</span>, 2024: 173, 108245. (IF 7.0, Q1).</li>
+                <li><strong>Hu M</strong>, Wu B, Lu D, Xie J, Chen Y, Yang Z, Dai W. Two-step hierarchical neural network for classification of dry age-related macular degeneration using optical coherence tomography images. <span class="journal">Frontiers in Medicine</span>, 2023:10. (IF 3.9, Q1).</li>
+                <li><strong>Hu M</strong>, Asami C, Iwakura H, Nakajima Y, Sema R, Kikuchi T, Sakakibara Y. Development and preliminary validation of a machine learning system for thyroid dysfunction diagnosis based on routine laboratory tests. <span class="journal">Communications Medicine</span>, 2022:2(1), 9. (IF 5.4, Q1).</li>
+                <li><strong>Hu M</strong>, Nohara Y, Wakata Y, Ahmed A, Nakashima N, Nakamura M. Machine Learning Based Prediction of Data-driven Approaches...in Bangladesh. <span class="journal">Eur J Bioinformatics</span> 14.4 2018: 20-28.</li>
+                <li><strong>Hu M</strong>, Nohara Y, Nakamura M, Nakashima N. Prediction and factor extraction of drug function by analyzing medical records in developing countries. <span class="journal">Studies in Health Technology and Informatics</span>. Vol 245;2017:403-407.</li>
+            </ol>
+        </section>
+
+        <!-- Patents -->
+        <section class="section">
+            <h2>Patents</h2>
+            <ol class="patent-list">
+                <li><strong>Hu M</strong>, et al. A Medical Haptic Feedback Clamping Device. China Utility Model Patent, CN220436990U. Granted July 17, 2023.</li>
+                <li><strong>Hu M</strong>, et al. A Haptic Feedback Sensing Control Handle. China Utility Model Patent, CN218204642U. Granted Dec 30, 2022.</li>
+                <li><strong>Hu M</strong>, et al. Operating Pen for a Surgical Haptic Sensing Device. China Design Patent, CN307806509S. Granted Dec 30, 2022.</li>
+                <li><strong>Hu M</strong>, et al. Biological Information Evaluation System and Biological Information Evaluation Program. Japan Invention Patent, JP6948497B2. Granted Sep 24, 2021.</li>
+            </ol>
+        </section>
+
+        <!-- Research Funding -->
+        <section class="section">
+            <h2>Research Funding</h2>
+            
+            <div class="experience-item">
+                <div class="item-header">
+                    <div class="item-title">Principal Investigator</div>
+                    <div class="item-date">2022 – 2024</div>
+                </div>
+                <div class="item-company">Application of Digital 3D Eye Model in Cataract Surgery Training</div>
+                <div class="item-description">Grant No. AF2202D12</div>
+            </div>
+
+            <div class="experience-item">
+                <div class="item-header">
+                    <div class="item-title">Major Contributor</div>
+                    <div class="item-date">2021 – 2023</div>
+                </div>
+                <div class="item-company">Development and Application of Audiovisual-Haptic Interaction Technology for Remote Ophthalmic Surgery</div>
+                <div class="item-description">Grant No. 2021GK4015</div>
+            </div>
+        </section>
+
+        <!-- Awards -->
+        <section class="section">
+            <h2>Awards</h2>
+            <div class="award-item">
+                <div class="award-name">Key Professional in the Big Health Industry</div>
+                <div class="award-details">2023, China</div>
+            </div>
+            <div class="award-item">
+                <div class="award-name">Xingcheng Cup Technological Innovation Competition</div>
+                <div class="award-details">2022, China</div>
+            </div>
+            <div class="award-item">
+                <div class="award-name">MEXT Scholarship for Doctoral Studies</div>
+                <div class="award-details">2015, Japan</div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
